@@ -6,80 +6,21 @@
 <title>Carros Fora de Série do Brasil</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-    background:#ececec;
-    color:#333;
-}
-
-header{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:40px 20px;
-}
-
-header h1{
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-header p{
-    font-size:18px;
-}
-
-.container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:25px;
-    padding:30px;
-}
-
-.card{
-    width:320px;
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-.card h2{
-    text-align:center;
-    color:#c40000;
-    margin:15px;
-}
-
-.card p{
-    padding:0 15px 20px;
-    text-align:justify;
-    line-height:1.5;
-}
-
-footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:20px;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#eee;color:#222}
+header{background:#111;color:#fff;text-align:center;padding:35px}
+header p{margin-top:10px}
+nav{background:#c40000;padding:10px;text-align:center}
+nav a{color:#fff;text-decoration:none;margin:0 15px;font-weight:bold}
+section{padding:30px}
+h2{text-align:center;margin-bottom:20px;color:#b30000}
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.card{background:#fff;width:300px;border-radius:10px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.2);transition:.3s}
+.card:hover{transform:scale(1.03)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card h3{text-align:center;margin:10px;color:#c40000}
+.card p{padding:0 15px 15px;text-align:justify;font-size:14px}
+footer{background:#111;color:#fff;text-align:center;padding:20px;margin-top:20px}
 </style>
 
 </head>
@@ -87,63 +28,110 @@ footer{
 
 <header>
 <h1>Carros Fora de Série do Brasil</h1>
-<p>Conheça alguns dos esportivos e veículos exclusivos produzidos por pequenas fabricantes brasileiras.</p>
+<p>Os esportivos e veículos exclusivos que marcaram a indústria automobilística brasileira.</p>
 </header>
 
-<section class="container">
+<nav>
+<a href="#historia">História</a>
+<a href="#carros">Carros</a>
+</nav>
+
+<section id="historia">
+<h2>História</h2>
+<p style="text-align:justify;max-width:1000px;margin:auto;">
+Entre as décadas de 1960 e 1990, pequenas fabricantes brasileiras produziram veículos conhecidos como
+<b>carros fora de série</b>. Eles eram feitos em pequenas quantidades, geralmente com carrocerias em fibra
+de vidro e mecânica Volkswagen, Chevrolet ou Ford. Marcas como Puma, Gurgel, Miura, MP Lafer,
+Souza Ramos e Santa Matilde tornaram-se famosas pela criatividade e inovação.
+</p>
+</section>
+
+<section id="carros">
+<h2>Principais Modelos</h2>
+
+<div class="cards">
 
 <div class="card">
-<img src="https://via.placeholder.com/320x200?text=Puma+GT">
-<h2>Puma GT</h2>
-<p>Lançado em 1967, tornou-se o esportivo brasileiro mais famoso. Sua carroceria em fibra de vidro e seu design elegante marcaram época.</p>
+<img src="https://via.placeholder.com/300x180?text=Puma+GT">
+<h3>Puma GT</h3>
+<p>Produzido desde 1967, foi um dos esportivos nacionais mais famosos. Possuía carroceria em fibra de vidro e design inspirado nos esportivos europeus.</p>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/320x200?text=Miura">
-<h2>Miura</h2>
-<p>Produzido no Rio Grande do Sul, era um esportivo de luxo com acabamento refinado, painel completo e equipamentos avançados para sua época.</p>
+<img src="https://via.placeholder.com/300x180?text=Puma+GTB">
+<h3>Puma GTB</h3>
+<p>Lançado em 1974 com motor seis cilindros do Chevrolet Opala. Era um dos esportivos mais potentes produzidos no Brasil.</p>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/320x200?text=Santa+Matilde">
-<h2>Santa Matilde</h2>
-<p>Fabricado entre os anos 70 e 90, ficou conhecido pelo conforto, desempenho e excelente qualidade de construção.</p>
+<img src="https://via.placeholder.com/300x180?text=Miura">
+<h3>Miura</h3>
+<p>Fabricado no Rio Grande do Sul, destacava-se pelo luxo, tecnologia e acabamento sofisticado, sendo considerado um carro à frente do seu tempo.</p>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/320x200?text=Adamo+GT">
-<h2>Adamo GT</h2>
-<p>Criado pelo designer Toni Bianco, possuía linhas modernas e utilizava mecânica Volkswagen, tornando-se um dos esportivos nacionais mais desejados.</p>
+<img src="https://via.placeholder.com/300x180?text=Santa+Matilde">
+<h3>Santa Matilde</h3>
+<p>Cupê esportivo lançado em 1978, equipado com motor do Opala e reconhecido pela qualidade de construção e conforto.</p>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/320x200?text=Bianco+S">
-<h2>Bianco S</h2>
-<p>Produzido na década de 1970, destacava-se pela carroceria de fibra de vidro, baixo peso e visual esportivo.</p>
+<img src="https://via.placeholder.com/300x180?text=Gurgel+X12">
+<h3>Gurgel X-12</h3>
+<p>Utilitário criado por João Gurgel em 1973. Era resistente, utilizava mecânica Volkswagen e foi exportado para vários países.</p>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/320x200?text=Hofstetter">
-<h2>Hofstetter Turbo</h2>
-<p>Um dos esportivos mais avançados dos anos 80 no Brasil. Seu desenho futurista e portas diferenciadas chamavam muita atenção.</p>
+<img src="https://via.placeholder.com/300x180?text=Gurgel+BR800">
+<h3>Gurgel BR-800</h3>
+<p>Primeiro automóvel brasileiro desenvolvido por uma fabricante nacional, lançado em 1988 com motor próprio de dois cilindros.</p>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/320x200?text=Aurora+122-C">
-<h2>Aurora 122-C</h2>
-<p>Criado pelo empresário João Augusto Conrado do Amaral Gurgel, era um esportivo de produção bastante limitada.</p>
+<img src="https://via.placeholder.com/300x180?text=MP+Lafer">
+<h3>MP Lafer</h3>
+<p>Roadster inspirado nos modelos ingleses dos anos 1930. Utilizava mecânica Volkswagen e fez sucesso também no exterior.</p>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/320x200?text=Lobini+H1">
-<h2>Lobini H1</h2>
-<p>Lançado em 2005, foi um dos esportivos nacionais mais modernos, equipado com motor turbo e excelente desempenho.</p>
+<img src="https://via.placeholder.com/300x180?text=Souza+Ramos">
+<h3>Souza Ramos</h3>
+<p>Empresa brasileira especializada em adaptações e veículos especiais. Produziu versões exclusivas de picapes e utilitários de luxo.</p>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=Bianco+S">
+<h3>Bianco S</h3>
+<p>Esportivo leve da década de 1970, conhecido pela carroceria de fibra de vidro e visual moderno.</p>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=Hofstetter">
+<h3>Hofstetter Turbo</h3>
+<p>Um dos esportivos mais modernos dos anos 80, com desenho futurista e motor Volkswagen turbo.</p>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=Lobini+H1">
+<h3>Lobini H1</h3>
+<p>Lançado em 2005, marcou o retorno dos esportivos nacionais de pequena produção com motor Audi 1.8 Turbo.</p>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=Aurora+122C">
+<h3>Aurora 122-C</h3>
+<p>Esportivo brasileiro produzido em pequena escala na década de 1990, destacando-se pela exclusividade.</p>
+</div>
+
 </div>
 
 </section>
 
 <footer>
-<p>© 2026 | Carros Fora de Série do Brasil</p>
+<h3>Conclusão</h3>
+<p>Os carros fora de série representam um importante capítulo da indústria automobilística brasileira. Mesmo produzidos em pequenas quantidades, demonstraram criatividade, inovação e a capacidade de desenvolver veículos únicos, que hoje são considerados clássicos e muito valorizados por colecionadores.</p>
+<br>
+<p><b>© 2026 - Carros Fora de Série do Brasil</b></p>
 </footer>
 
 </body>
