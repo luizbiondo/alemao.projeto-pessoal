@@ -1,139 +1,341 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carros Fora de Série do Brasil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendas Nacionais: Carros Fora de Série do Brasil</title>
+    <style>
+        /* Variáveis e Reset */
+        :root {
+            --primary-color: #b30000;
+            --secondary-color: #1a1a1a;
+            --accent-color: #f4f4f4;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#eee;color:#222}
-header{background:#111;color:#fff;text-align:center;padding:35px}
-header p{margin-top:10px}
-nav{background:#c40000;padding:10px;text-align:center}
-nav a{color:#fff;text-decoration:none;margin:0 15px;font-weight:bold}
-section{padding:30px}
-h2{text-align:center;margin-bottom:20px;color:#b30000}
-.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
-.card{background:#fff;width:300px;border-radius:10px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.2);transition:.3s}
-.card:hover{transform:scale(1.03)}
-.card img{width:100%;height:180px;object-fit:cover}
-.card h3{text-align:center;margin:10px;color:#c40000}
-.card p{padding:0 15px 15px;text-align:justify;font-size:14px}
-footer{background:#111;color:#fff;text-align:center;padding:20px;margin-top:20px}
-</style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ccc;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Introdução */
+        .intro-text {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Grid de Carros */
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .car-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .car-img {
+            height: 220px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .car-content {
+            padding: 25px;
+        }
+
+        .car-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .car-content .maker {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .car-content p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .specs {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .specs p {
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        /* Curiosidades / Destaques */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .feature-box h4 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav a {
+                margin: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-<h1>Carros Fora de Série do Brasil</h1>
-<p>Os esportivos e veículos exclusivos que marcaram a indústria automobilística brasileira.</p>
-</header>
+    <header>
+        <h1>Carros Fora de Série Nacionais</h1>
+        <p>A era de ouro da ousadia, design e paixão artesanal na indústria automobilística brasileira.</p>
+    </header>
 
-<nav>
-<a href="#historia">História</a>
-<a href="#carros">Carros</a>
-</nav>
+    <nav>
+        <a href="#sobre">A História</a>
+        <a href="#modelos">Modelos Icônicos</a>
+        <a href="#legado">O Legado</a>
+    </nav>
 
-<section id="historia">
-<h2>História</h2>
-<p style="text-align:justify;max-width:1000px;margin:auto;">
-Entre as décadas de 1960 e 1990, pequenas fabricantes brasileiras produziram veículos conhecidos como
-<b>carros fora de série</b>. Eles eram feitos em pequenas quantidades, geralmente com carrocerias em fibra
-de vidro e mecânica Volkswagen, Chevrolet ou Ford. Marcas como Puma, Gurgel, Miura, MP Lafer,
-Souza Ramos e Santa Matilde tornaram-se famosas pela criatividade e inovação.
-</p>
-</section>
+    <div class="container">
+        
+        <!-- Seção Sobre -->
+        <section id="sobre">
+            <h2 class="section-title">O Fenômeno dos "Fora de Série"</h2>
+            <div class="intro-text">
+                <p>Durante as décadas de 1970, 1980 e 1990, o mercado brasileiro de automóveis vivia sob forte proteção alfandegária, o que impedia a importação de carros esportivos estrangeiros. Aproveitando essa lacuna e a paixão nacional por velocidade e design diferenciado, surgiram dezenas de fabricantes artesanais independentes. Utilizando geralmente mecânicas confiáveis de grande volume (como Volkswagen, Ford ou Chevrolet) e carrocerias inovadoras em fibra de vidro, esses visionários criaram os chamados carros <strong>"fora de série"</strong>: verdadeiras joias exclusivas que marcaram época nas estradas e pistas do Brasil.</p>
+            </div>
+        </section>
 
-<section id="carros">
-<h2>Principais Modelos</h2>
+        <!-- Seção Modelos Icônicos -->
+        <section id="modelos">
+            <h2 class="section-title">Modelos Icônicos</h2>
+            <div class="car-grid">
+                
+                <!-- Puma GT / GTE -->
+                <div class="car-card">
+                    <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="car-content">
+                        <span class="maker">Puma Indústria de Veículos</span>
+                        <h3>Puma GTE (1970s)</h3>
+                        <p>Considerado o suprassumo dos esportivos brasileiros. Com linhas fluidas inspiradas em clássicos europeus e chassi/mecânica Volkswagen a ar, o Puma conquistou mercados internacionais e corações locais.</p>
+                        <div class="specs">
+                            <p><strong>Motor:</strong> Boxer 4 cilindros (VW)</p>
+                            <p><strong>Material:</strong> Fibra de vidro</p>
+                            <p><strong>Destaque:</strong> Design atemporal e esportividade acessível na época.</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="cards">
+                <!-- Santa Matilde -->
+                <div class="car-card">
+                    <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="car-content">
+                        <span class="maker">Santa Matilde</span>
+                        <h3>SM 4.1 (1984)</h3>
+                        <p>Um autêntico Gran Turismo nacional de luxo. Diferente de muitos concorrentes, utilizava o potente motor 6-cilindros em linha do Chevrolet Opala, oferecendo muito conforto, acabamento refinado e desempenho vigoroso.</p>
+                        <div class="specs">
+                            <p><strong>Motor:</strong> Chevrolet 4.1 Litros (6 cilindros)</p>
+                            <p><strong>Conforto:</strong> Ar-condicionado e bancos de couro de série</p>
+                            <p><strong>Destaque:</strong> O rugido marcante do motor e imponência na estrada.</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Puma+GT">
-<h3>Puma GT</h3>
-<p>Produzido desde 1967, foi um dos esportivos nacionais mais famosos. Possuía carroceria em fibra de vidro e design inspirado nos esportivos europeus.</p>
-</div>
+                <!-- Miura -->
+                <div class="car-card">
+                    <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="car-content">
+                        <span class="maker">Brazinca / Bianconi</span>
+                        <h3>Miura Sport (1980s)</h3>
+                        <p>Sinônimo de futurismo e ostentação nos anos 80. O Miura parecia saído de um filme de ficção científica, recheado de inovações eletrônicas pioneiras para a época, painéis digitais e computador de bordo.</p>
+                        <div class="specs">
+                            <p><strong>Mecânica:</strong> Base Volkswagen / Ford</p>
+                            <p><strong>Tecnologia:</strong> Painéis digitais e travas elétricas avançadas</p>
+                            <p><strong>Destaque:</strong> O carro mais tecnológico e desejado por executivos bem-sucedidos.</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Puma+GTB">
-<h3>Puma GTB</h3>
-<p>Lançado em 1974 com motor seis cilindros do Chevrolet Opala. Era um dos esportivos mais potentes produzidos no Brasil.</p>
-</div>
+                <!-- Bianco S -->
+                <div class="car-card">
+                    <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="car-content">
+                        <span class="maker">Bianco S (Anísio Campos)</span>
+                        <h3>Bianco S (1976)</h3>
+                        <p>Desenhado pelo renomado designer Anísio Campos, o Bianco S impressionava pelas proporções exóticas e portas que abriam junto com parte do teto. Uma verdadeira obra de arte sobre rodas baseada na plataforma do VW Brasília.</p>
+                        <div class="specs">
+                            <p><strong>Motor:</strong> VW 1600 dupla carburação</p>
+                            <p><strong>Estética:</strong> Linhas agressivas e aerodinâmicas</p>
+                            <p><strong>Destaque:</strong> Exclusividade extrema (poucas unidades produzidas).</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Miura">
-<h3>Miura</h3>
-<p>Fabricado no Rio Grande do Sul, destacava-se pelo luxo, tecnologia e acabamento sofisticado, sendo considerado um carro à frente do seu tempo.</p>
-</div>
+            </div>
+        </section>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Santa+Matilde">
-<h3>Santa Matilde</h3>
-<p>Cupê esportivo lançado em 1978, equipado com motor do Opala e reconhecido pela qualidade de construção e conforto.</p>
-</div>
+        <!-- Seção Legado -->
+        <section id="legado">
+            <h2 class="section-title">O Legado e a Paixão Atual</h2>
+            <div class="features-list">
+                <div class="feature-box">
+                    <h4>Resistência Artesanal</h4>
+                    <p>A construção em fibra de vidro exigia muita mão de obra especializada e paciência, tornando cada veículo praticamente único devido aos ajustes manuais.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>Clube de Colecionadores</h4>
+                    <p>Hoje, os carros fora de série são altamente cobiçados em encontros de clássicos, possuindo clubes dedicados à preservação de suas histórias e peças originais.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>Identidade Própria</h4>
+                    <p>Eles provaram que o Brasil tinha capacidade criativa e técnica para desenvolver designs próprios, que em nada deviam esteticamente aos esportivos europeus.</p>
+                </div>
+            </div>
+        </section>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Gurgel+X12">
-<h3>Gurgel X-12</h3>
-<p>Utilitário criado por João Gurgel em 1973. Era resistente, utilizava mecânica Volkswagen e foi exportado para vários países.</p>
-</div>
+    </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Gurgel+BR800">
-<h3>Gurgel BR-800</h3>
-<p>Primeiro automóvel brasileiro desenvolvido por uma fabricante nacional, lançado em 1988 com motor próprio de dois cilindros.</p>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=MP+Lafer">
-<h3>MP Lafer</h3>
-<p>Roadster inspirado nos modelos ingleses dos anos 1930. Utilizava mecânica Volkswagen e fez sucesso também no exterior.</p>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Souza+Ramos">
-<h3>Souza Ramos</h3>
-<p>Empresa brasileira especializada em adaptações e veículos especiais. Produziu versões exclusivas de picapes e utilitários de luxo.</p>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Bianco+S">
-<h3>Bianco S</h3>
-<p>Esportivo leve da década de 1970, conhecido pela carroceria de fibra de vidro e visual moderno.</p>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Hofstetter">
-<h3>Hofstetter Turbo</h3>
-<p>Um dos esportivos mais modernos dos anos 80, com desenho futurista e motor Volkswagen turbo.</p>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Lobini+H1">
-<h3>Lobini H1</h3>
-<p>Lançado em 2005, marcou o retorno dos esportivos nacionais de pequena produção com motor Audi 1.8 Turbo.</p>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300x180?text=Aurora+122C">
-<h3>Aurora 122-C</h3>
-<p>Esportivo brasileiro produzido em pequena escala na década de 1990, destacando-se pela exclusividade.</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-<h3>Conclusão</h3>
-<p>Os carros fora de série representam um importante capítulo da indústria automobilística brasileira. Mesmo produzidos em pequenas quantidades, demonstraram criatividade, inovação e a capacidade de desenvolver veículos únicos, que hoje são considerados clássicos e muito valorizados por colecionadores.</p>
-<br>
-<p><b>© 2026 - Carros Fora de Série do Brasil</b></p>
-</footer>
+    <footer>
+        <p>&copy; 2026 Memória Automotiva Brasileira. Projeto desenvolvido em homenagem aos fora de série nacionais.</p>
+    </footer>
 
 </body>
 </html>
-
