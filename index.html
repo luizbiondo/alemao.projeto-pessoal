@@ -1,1 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendas Nacionais: Carros Fora de Série do Brasil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #1d3557;
+            --dark: #0f172a;
+            --light: #f1faee;
+            --accent: #457b9d;
+            --card-bg: #1e293b;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+
+        nav {
+            background-color: var(--secondary);
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            border-left: 5px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .card-content p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .specs {
+            font-size: 0.85rem;
+            background: rgba(0,0,0,0.2);
+            padding: 0.5rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Seção Interativa / Quiz ou Curiosidades */
+        .interactive-box {
+            background: linear-gradient(135deg, var(--secondary), var(--card-bg));
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .interactive-box button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .interactive-box button:hover {
+            background-color: #d62828;
+        }
+
+        #curiosity-display {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #e2e8f0;
+        }
+
+        footer {
+            background-color: #090d16;
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        @media(max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            nav { flex-direction: column; align-items: center; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Carros Fora de Série Nacionais</h1>
+        <p>A era de ouro da criatividade automotiva brasileira: fibra de vidro, mecânica nacional e muito estilo.</p>
+    </header>
+
+    <nav>
+        <a href="#destaques">Destaques</a>
+        <a href="#historia">A Era de Ouro</a>
+        <a href="#curiosidades">Curiosidades</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="destaques">
+            <h2>Os Ícones Nacionais</h2>
+            <div class="grid">
+                
+                <!-- Card 1 -->
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Puma_GTS_1980.jpg" alt="Puma GTS">
+                    <div class="card-content">
+                        <h3>Puma GTS / GTE</h3>
+                        <p>O esportivo brasileiro mais famoso do mundo. Utilizava mecânica Volkswagen arrefecida a ar e carroceria de fibra de vidro.</p>
+                        <div class="specs">
+                            <strong>Motor:</strong> Boxer 4 cilindros (VW)<br>
+                            <strong>Anos de Produção:</strong> 1967 – 1987
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Miura_Soprano.jpg" alt="Miura">
+                    <div class="card-content">
+                        <h3>Miura (Sport, X8, etc.)</h3>
+                        <p>Sinônimo de futurismo nos anos 80. Ficaram famosos pelo luxo tecnológico exagerado, painéis digitais e motores Volkswagen turbo ou GM.</p>
+                        <div class="specs">
+                            <strong>Motor:</strong> Variou de VW a AP Turbo e GM 6-cilindros<br>
+                            <strong>Anos de Produção:</strong> 1977 – 1992
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Gurgel_XEF_1984.jpg" alt="Gurgel XEF">
+                    <div class="card-content">
+                        <h3>Gurgel XEF</h3>
+                        <p>Um micro-sedã urbano e luxuoso criado por João Augusto Gurgel. Tecnológico, inovador e extremamente compacto.</p>
+                        <div class="specs">
+                            <strong>Motor:</strong> VW 1.6 a ar (posição central-traseira)<br>
+                            <strong>Anos de Produção:</strong> 1983 – 1986
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Santa_Matilde_Hatch.jpg" alt="Santa Matilde">
+                    <div class="card-content">
+                        <h3>Santa Matilde</h3>
+                        <p>Criado por uma tradicional fabricante de vagões ferroviários, combinava elegância clássica com o motor Opala 6 cilindros.</p>
+                        <div class="specs">
+                            <strong>Motor:</strong> Chevrolet 4.1 / 2.5 (Opala)<br>
+                            <strong>Anos de Produção:</strong> 1978 – 1997
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 (Novo) -->
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Brasinca_Uirapuru_red.jpg" alt="Brasinca Uirapuru">
+                    <div class="card-content">
+                        <h3>Brasinca Uirapuru</h3>
+                        <p>Considerado por muitos o primeiro grande esportivo GT nacional de luxo, com linhas arrojadas e desempenho impressionante para a época.</p>
+                        <div class="specs">
+                            <strong>Motor:</strong> Chevrolet 6-cilindros (Irmão do 3100 / Veraneio)<br>
+                            <strong>Anos de Produção:</strong> 1964 – 1967
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 (Novo) -->
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Bianco_S.jpg" alt="Bianco S">
+                    <div class="card-content">
+                        <h3>Bianco S</h3>
+                        <p>Desenhado por Toni Bianco, destacava-se pelo design exótico, portas tipo asa de gaivota em algumas versões e linhas extremamente fluidas.</p>
+                        <div class="specs">
+                            <strong>Motor:</strong> Volkswagen Boxer 1.6 (arrefecido a ar)<br>
+                            <strong>Anos de Produção:</strong> 1976 – 1979
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 (Novo) -->
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Malzoni_GT.jpg" alt="DKW-Malzoni">
+                    <div class="card-content">
+                        <h3>DKW-Malzoni</h3>
+                        <p>O precursor do Puma. Criado por Rino Malzoni com mecânica DKW-Vemag, fez enorme sucesso nas pistas de corrida brasileiras.</p>
+                        <div class="specs">
+                            <strong>Motor:</strong> DKW 3-cilindros 2-tempos<br>
+                            <strong>Anos de Produção:</strong> 1964 – 1966
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 (Novo) -->
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Farus_ML929.jpg" alt="Farus">
+                    <div class="card-content">
+                        <h3>Farus (ML 929 / Beta)</h3>
+                        <p>Fundado por pai e filho de origem italiana, combinava design europeu sofisticado com mecânica robusta da Fiat e motorização central/dianteira.</p>
+                        <div class="specs">
+                            <strong>Motor:</strong> Fiat 2.0 (Spazio / Tempra) ou Alfa Romeo<br>
+                            <strong>Anos de Produção:</strong> 1978 – 1990
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="historia">
+            <h2>Por que "Fora de Série"?</h2>
+            <div style="background-color: var(--card-bg); padding: 2rem; border-radius: 8px;">
+                <p>Entre as décadas de 1960 e 1990, o mercado brasileiro sofria com forte proteção alfandegária e a proibição de importação de veículos. Aproveitando-se disso (e de plataformas mecânicas robustas fornecidas por grandes montadoras como Volkswagen, Chevrolet e Ford), empreendedores brasileiros desenvolveram seus próprios veículos de pequeno e médio porte.</p>
+                <br>
+                <p>Eles utilizavam geralmente carrocerias moldadas artesanalmente em <strong>fibra de vidro</strong> sobre chassis tubulares ou plataformas adaptadas, criando designs arrojados, esportivos e únicos que marcaram gerações de entusiastas.</p>
+            </div>
+        </section>
+
+        <section id="curiosidades">
+            <h2>Painel de Curiosidades Interativo</h2>
+            <div class="interactive-box">
+                <p>Clique no botão abaixo para descobrir fatos fascinantes sobre os carros fora de série do Brasil:</p>
+                <div id="curiosity-display">"Clique no botão para gerar uma curiosidade!"</div>
+                <button onclick="gerarCuriosidade()">Nova Curiosidade</button>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Memória Automotiva Brasileira. Desenvolvido para entusiastas da velocidade.</p>
+    </footer>
+
+    <script>
+        const curiosidades = [
+            "O Puma começou sua história chamado 'DKW-Malzoni', antes de adotar a mecânica da Volkswagen.",
+            "O Miura contava com itens de série absurdos para a época, como comandos por controle remoto e bancos com ajuste pneumático.",
+            "A Gurgel desenvolveu o primeiro carro elétrico genuinamente brasileiro fabricado em série, o Gurgel Itaipu.",
+            "O chassi do Santa Matilde foi projetado pelo renomado piloto e projetista brasileiro Toni Bianco.",
+            "Alguns modelos da Puma foram exportados para países da Europa, Japão e Estados Unidos, competindo no mercado internacional."
+        ];
+
+        function gerarCuriosidade() {
+            const randomIndex = Math.floor(Math.random() * curiosidades.length);
+            const display = document.getElementById('curiosity-display');
+            display.style.opacity = 0;
+            setTimeout(() => {
+                display.textContent = `"${curiosidades[randomIndex]}"`;
+                display.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+</body>
+</html>
